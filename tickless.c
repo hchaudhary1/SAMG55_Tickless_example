@@ -56,7 +56,7 @@ void vPortSuppressTicksAndSleep( TickType_t xExpectedIdleTime )
 
 	__disable_irq();
 
-	if(eTaskConfirmSleepModeStatus() != eNoTasksWaitingTimeout) { 
+	if(eTaskConfirmSleepModeStatus() == eAbortSleep) { 
 		supress_tick_flag = false;
 
 		__enable_irq();
